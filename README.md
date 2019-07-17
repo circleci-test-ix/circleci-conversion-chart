@@ -1,6 +1,19 @@
-# circleci-conversion-chart
+### TravisCI to CircleCI Conversion Chart
 
-### TravisCI to CircleCI
+#### Use xenial
+
+Travis
+
+```yaml
+dist: xenial
+```
+
+Circle
+
+```yaml
+docker:
+  - image: buildpack-deps:xenial
+```
 
 #### Use clang compiler
 
@@ -26,3 +39,5 @@ Circle
       echo 'export CC=${CC:-clang}' >> $BASH_ENV
       echo 'export CC_FOR_BUILD=${CC_FOR_BUILD:-clang}' >> $BASH_ENV
 ```
+
+#### 
