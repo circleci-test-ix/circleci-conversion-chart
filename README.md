@@ -62,6 +62,23 @@ Circle
       echo 'export CC_FOR_BUILD=${CC_FOR_BUILD:-clang}' >> $BASH_ENV
 ```
 
+#### Use specific node version
+
+Travis
+
+```yaml
+language: node_js
+node_js:
+  - 11
+```
+
+Circle
+
+```yaml
+docker:
+  - image: circleci/node:11
+```
+
 #### Use specific python version
 
 Travis
