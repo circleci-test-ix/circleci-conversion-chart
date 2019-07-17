@@ -1,5 +1,27 @@
 # TravisCI to CircleCI Conversion Chart
 
+#### Cache a folder
+
+Travis
+
+```yaml
+cache:  
+  - directories:
+    - node_modules
+```
+
+Circle
+
+```yaml
+- save_cache:
+    key: node_modules-{{ checksum "package.json" }}
+    paths:
+      - node_modules
+
+- restore_cache:
+    key: node_modules-{{ checksum "package.json" }}
+```
+
 #### Use xenial
 
 Travis
