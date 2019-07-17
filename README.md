@@ -2,10 +2,15 @@
 
 ### TravisCI to CircleCI
 
+#### Use clang compiler
+
+Travis
 
 ```yaml
 compiler: clang
 ```
+
+Circle
 
 ```yaml
 - run:
