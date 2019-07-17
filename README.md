@@ -95,6 +95,22 @@ docker:
   - image: circleci/python:3.6
 ```
 
+#### Use Postgres
+
+Travis
+
+```yaml
+services:
+  - postgresql
+```
+
+Circle
+
+```yaml
+docker:
+  - image: circleci/postgres
+```
+
 #### Build phases
 
 Travis
