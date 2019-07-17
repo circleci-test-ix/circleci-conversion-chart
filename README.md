@@ -55,3 +55,33 @@ Circle
 docker:
   - image: circleci/python:3.6
 ```
+
+#### Build phases
+
+Travis
+
+```yaml
+before_install:
+  - echo before install  
+install:
+  - echo install
+before_script:
+  - echo before script
+script:
+  - echo script
+after_script:
+  - echo after script
+```
+
+Circle
+
+```yaml
+- run:
+    name: scripts
+    command: |
+      echo before install
+      echo install
+      echo before script
+      echo script
+      echo after script
+```
