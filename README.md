@@ -40,4 +40,18 @@ Circle
       echo 'export CC_FOR_BUILD=${CC_FOR_BUILD:-clang}' >> $BASH_ENV
 ```
 
-#### 
+#### Use specific python version
+
+Travis
+
+```yaml
+language: python      
+python: 3.6
+```
+
+Circle
+
+```yaml
+docker:
+  - image: circleci/python:3.6
+```
