@@ -14,11 +14,9 @@ script:
 Circle
 
 ```yaml
-- run:
-    name: Script
-    command: |
-      echo line1
-      echo line2
+- run: |
+    echo line1
+    echo line2
 ```
 
 #### Cache a folder
