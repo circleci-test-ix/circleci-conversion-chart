@@ -135,6 +135,10 @@ Circle
 ```yaml
 docker:
   - image: circleci/python:3.6
+
+# may need this if you're using pip
+steps:
+  - run: echo 'export PATH=/home/circleci/.local/bin:$PATH' >> $BASH_ENV  
 ```
 
 #### Use Postgres
