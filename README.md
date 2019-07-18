@@ -14,12 +14,12 @@ Circle
 
 ```yaml
 - save_cache:
-    key: node_modules-{{ checksum "package.json" }}
+    key: node_modules-{{ checksum "package-lock.json" }}
     paths:
       - node_modules
 
 - restore_cache:
-    key: node_modules-{{ checksum "package.json" }}
+    key: node_modules-{{ checksum "package-lock.json" }}
 ```
 
 #### Set environment variables in bash
@@ -70,6 +70,13 @@ Circle
 ```yaml
 docker:
   - image: buildpack-deps:xenial
+```
+
+or 
+
+```yaml
+machine:
+  image: ubuntu-1604:201903-01
 ```
 
 #### Use clang compiler
@@ -174,4 +181,46 @@ Circle
       echo before script
       echo script
       echo after script
+```
+
+#### Stages and Workflows
+
+Travis
+
+```yaml
+jobs:
+  include:
+    - stage: build
+      script: ./build
+      
+    - stage: test
+      script: ./test-1
+      script: ./test-2      
+```
+
+Circle
+
+```yaml
+jobs:
+  build:
+    steps:
+      - run: ./build
+  test1:
+    steps:
+      - run: ./test-1
+  test2:
+    steps:
+      - run: ./test-2
+        
+workflows:
+  version: 2
+  build_and_test:
+    jobs:   
+      - build
+      - test1:
+          requires:
+            - build
+      - test2:
+          requires:
+            - build            
 ```
