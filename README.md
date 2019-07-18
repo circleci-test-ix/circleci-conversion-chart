@@ -178,7 +178,7 @@ docker:
       MYSQL_PASSWORD: password
 ```
 
-#### Use MySQL
+#### Use MongoDB
 
 Travis
 
