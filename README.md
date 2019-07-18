@@ -196,6 +196,24 @@ docker:
   - image: circleci/mongo:4
 ```
 
+#### Install APT Packages
+
+Travis
+
+```yaml
+addons:
+  apt:
+    packages:
+    - 7zip
+    - unrar
+```
+
+Circle
+
+```yaml
+sudo apt-get install 7zip unrar
+```
+
 #### Build phases
 
 Travis
