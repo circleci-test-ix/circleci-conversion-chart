@@ -267,3 +267,45 @@ workflows:
           requires:
             - build            
 ```
+
+#### Matrix Builds
+
+Travis
+
+```yaml
+language: python
+matrix:
+  include:
+  - python: "2.7"
+    env: TEST_SUITE=suite_2_7
+  - python: "3.3"
+    env: TEST_SUITE=suite_3_3
+  - python: "pypy"
+    env: TEST_SUITE=suite_pypy
+script: ./test.py $TEST_SUITE    
+```
+
+Circle
+
+```yaml
+# Use YAML aliases
+run_script: &run_script
+  - run: ./test.py $TEST_SUITE
+
+jobs:
+  python_2_7:
+    environment:
+      TEST_SUITE: "2.7"
+    steps:
+      - <<: *run_script
+  python_3_3:
+    environment:
+      TEST_SUITE: "3.3"
+    steps:
+      - <<: *run_script
+  python_py_py:
+    environment:
+      TEST_SUITE: "pypy"
+    steps:
+      - <<: *run_script        
+```
