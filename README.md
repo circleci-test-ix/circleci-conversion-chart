@@ -22,6 +22,41 @@ Circle
     key: node_modules-{{ checksum "package.json" }}
 ```
 
+#### Set environment variables in bash
+
+Travis
+
+```yaml
+export VAR=1
+VAR2="abc"
+export VAR3="${VAR2}def"
+```
+
+Circle
+
+```yaml
+export VAR=1
+echo 'export VAR1=1' >> $BASH_ENV
+var2="abc"
+echo 'export VAR3='"${VAR2}def" >> $BASH_ENV
+```
+
+#### Use mac xcode 10
+
+Travis
+
+```yaml
+os: osx
+osx_image: xcode10
+```
+
+Circle
+
+```yaml
+macos:
+  xcode: "10.0"
+```
+
 #### Use xenial
 
 Travis
