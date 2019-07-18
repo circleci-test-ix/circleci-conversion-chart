@@ -1,5 +1,26 @@
 # TravisCI to CircleCI Conversion Chart
 
+#### Multi-line script
+
+Travis
+
+```yaml
+script:  
+  - |
+    echo line1
+    echo line2
+```
+
+Circle
+
+```yaml
+- run:
+    name: Script
+    command: |
+      echo line1
+      echo line2
+```
+
 #### Cache a folder
 
 Travis
