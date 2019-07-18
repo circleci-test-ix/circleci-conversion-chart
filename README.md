@@ -37,7 +37,7 @@ Circle
 ```yaml
 export VAR=1
 echo 'export VAR1=1' >> $BASH_ENV
-var2="abc"
+VAR2="abc"
 echo 'export VAR3='"${VAR2}def" >> $BASH_ENV
 ```
 
