@@ -130,7 +130,7 @@ language: python
 python: 3.6
 ```
 
-Circle
+Circle using Docker
 
 ```yaml
 docker:
@@ -139,6 +139,17 @@ docker:
 # may need this if you're using pip
 steps:
   - run: echo 'export PATH=/home/circleci/.local/bin:$PATH' >> $BASH_ENV  
+```
+
+or Circle using machine
+
+```yaml
+machine:
+  image: ubuntu-1604:201903-01 # this has python 3.5 installed
+
+# may need this if you're calling python3
+steps:
+  - run: pyenv global 3.5.2
 ```
 
 #### Use Postgres
