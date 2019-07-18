@@ -142,6 +142,7 @@ docker:
 Travis
 
 ```yaml
+# runs on localhost:5432 as user postgres
 services:
   - postgresql
 ```
@@ -149,8 +150,50 @@ services:
 Circle
 
 ```yaml
+# runs on localhost:5432 as user postgres
 docker:
   - image: circleci/postgres
+```
+
+#### Use MySQL
+
+Travis
+
+```yaml
+# runs on localhost:3306
+services:
+  - mysql
+```
+
+Circle
+
+```yaml
+# runs on localhost:3306
+docker:
+  - image: circleci/mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpw
+      MYSQL_DATABASE: db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+```
+
+#### Use MySQL
+
+Travis
+
+```yaml
+# runs on localhost:27017
+services:
+  - mongodb
+```
+
+Circle
+
+```yaml
+# runs on localhost:27017
+docker:
+  - image: circleci/mongo:4
 ```
 
 #### Build phases
