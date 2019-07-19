@@ -6,7 +6,7 @@ Travis
 
 ```yaml
 git:
-  depth: 3
+  depth: 1
 ```
 
 Circle
