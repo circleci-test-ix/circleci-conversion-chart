@@ -1,5 +1,26 @@
 # TravisCI to CircleCI Conversion Chart
 
+#### Git clone depth=1
+
+Travis
+
+```yaml
+git:
+  depth: 3
+```
+
+Circle
+
+```yaml
+orbs:
+  shallow-checkout: datacamp/shallow-checkout@0.0.1
+  
+jobs:      
+  build:    
+    steps:
+      - shallow-checkout/checkout
+```
+
 #### Multi-line script
 
 Travis
