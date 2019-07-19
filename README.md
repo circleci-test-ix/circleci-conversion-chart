@@ -301,6 +301,8 @@ Circle
 
 #### Stages and Workflows
 
+*The build script runs first, followed by the 2 test scripts in parallel.*
+
 Travis
 
 ```yaml
