@@ -384,3 +384,20 @@ jobs:
     steps:
       - <<: *run_script        
 ```
+
+#### Notifications
+
+Travis
+
+```yaml
+notifications:
+  slack:
+  email:
+  irc:
+```
+
+Circle
+
+Use the CircleCI UI to configure notifications.  
+Slack and IRC are under *Project Settings > Chat Notifications*  
+Email is under *User Settings > Notification Settings*
