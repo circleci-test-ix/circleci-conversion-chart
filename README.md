@@ -187,7 +187,8 @@ or Circle using machine
 machine:
   image: ubuntu-1604:201903-01 # this has python 3.5 installed
 
-# may need this if you're calling python3
+# set the version you want to use
+# current versions: 3.7.0, 3.6.5, 3.5.2, 2.7.12
 steps:
   - run: pyenv global 3.5.2
 ```
