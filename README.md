@@ -81,6 +81,20 @@ VAR2="abc"
 echo 'export VAR3='"${VAR2}def" >> $BASH_ENV
 ```
 
+#### Built-in environment variables
+
+| Travis                | Circle                                                | Notes
+|-----------------------|-------------------------------------------------------|-----------------|
+| `BUILD_ID`            | `CIRCLE_WORKFLOW_ID`                                  | |
+| `TRAVIS`              | `CIRCLE`                                              | |
+| `TRAVIS_BRANCH`       | `CIRCLE_BRANCH`                                       | |
+| `TRAVIS_BUILD_DIR`    | `CIRCLE_WORKING_DIRECTORY`                            | |
+| `TRAVIS_COMMIT`       | `CIRCLE_SHA1`                                         | |
+| `TRAVIS_JOB_ID`       | `CIRCLE_BUILD_NUM`                                    | |
+| `TRAVIS_JOB_NUMBER`   | `CIRCLE_BUILD_NUM`                                    | |
+| `TRAVIS_PULL_REQUEST` | `CIRCLE_PR_NUMBER`                                    | In Travis, this is set to `false` if not a PR |
+| `TRAVIS_REPO_SLUG`    | `"$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME"` | In CircleCI, concatenate the username and reponame to get the slug |
+
 #### Use mac xcode 10
 
 Travis
