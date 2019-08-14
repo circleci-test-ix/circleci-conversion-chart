@@ -62,6 +62,34 @@ Circle
     key: node_modules-{{ checksum "package-lock.json" }}
 ```
 
+#### Branch filtering
+
+Travis
+
+```yaml
+branches:
+  only:
+    - master
+    - /^release-.*/
+    - /^v\d+\.\d+\.\d+$/
+```
+
+Circle
+
+```yaml
+workflows:
+  version: 2
+  build:
+    jobs:
+      - myjob:
+          filters:
+            branches:
+              only:
+                - master
+                - /^release-.*/
+                - /^v\d+\.\d+\.\d+$/
+```
+
 #### Set environment variables in bash
 
 Travis
